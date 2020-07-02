@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS SYNTAX</title>
+
+    <style>
+
+    /*
+
+    SYNTAX
+
+    selector {
+        property: value;
+    }
+
+    SELECTORS
+    =========
+
+    # BAD
+    1) !important
+    2) inline css 'style="color: orange;"'
+    3) id '#cat-one-1'
+
+    # GOOD
+    4) class '.favorite'
+    5) elements '<p>'
+
+    SPECIFICITY MATTERS
+    IF ALL IS EQUAL LAST DECLARED RULE WINS
+
+    */
+
+    p {
+        color: blue;
+    }
+
+    .favorite { 
+        color: red;
+    }
+
+    .special {
+        color: green;
+    }
+
+    #cat-one-1 {
+        color: purple;
+    }
+
+    p {
+        color: gray !important;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>My Amazing Document</h1>
+
+    <section>
+        <article>
+            <h2>Cats</h2>
+                <p id="cat-one-1" class="favorite special">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit temporibus dolorum exercitationem eum fuga nihil laudantium aliquid perspiciatis maiores dicta voluptatibus quaerat, dignissimos aut sunt repudiandae beatae ad quis libero!</p>
+        </article>
+
+        <article>
+            <h2>Lasers</h2>
+                <p style="color: orange;" class="favorite" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit temporibus dolorum exercitationem eum fuga
+                    nihil laudantium aliquid perspiciatis maiores dicta voluptatibus quaerat, dignissimos aut sunt repudiandae
+                    beatae ad quis libero!</p>
+        </article>
+
+        <article>
+            <h2>Clouds</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit temporibus dolorum exercitationem eum fuga
+                    nihil laudantium aliquid perspiciatis maiores dicta voluptatibus quaerat, dignissimos aut sunt repudiandae
+                    beatae ad quis libero!</p>
+        </article>
+    </section>
+</body>
+</html>
