@@ -29,3 +29,8 @@ header > img {
 .directions {
     list-style: decimal inside;
 }
+
+.user_review h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
