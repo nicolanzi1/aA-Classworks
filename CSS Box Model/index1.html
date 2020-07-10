@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>BOX MODEL INLINE</title>
+    <style>
+
+        body {
+            background: pink;
+        }
+
+        p {
+            background: orange;
+            display: block;
+        }
+
+        strong {
+            display: inline;
+            background: yellow;
+
+            /* DOES NOT WORK!!! */
+            width: 200px;
+            height: 200px;
+
+            padding: 0 50px;
+
+            border: 5px solid blue;
+
+            margin: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur porro <strong>vitae</strong> esse corporis omnis optio iusto sit veniam, ipsum debitis et harum quod ad dolor aperiam culpa adipisci. Fuga, itaque.</p>
+
+</body>
+</html>
