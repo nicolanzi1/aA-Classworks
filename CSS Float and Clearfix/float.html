@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>FLOAT</title>
+    <style>
+
+    h1 {
+        display: block;
+        background: yellow;
+
+    }
+
+    p {
+        display: block;
+        background: orange;
+    }
+
+    article {
+        margin: 50px;
+        background: blue;
+        border: 10px solid red;
+
+        clear: left;
+    }
+
+    img {
+        display: block;
+        width: 300px;
+        height: 400px;
+
+        float: left;
+        opacity: 0.8;
+    }
+
+    .stop-float {
+        display: block;
+        background: green;
+
+        clear: both;
+    }
+
+    .pseudo-stop-float:after {
+        content: "STOP THE FLOAT";
+        background: green;
+        
+        display: block;
+        clear: both;
+    }
+
+    .group:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    </style>
+</head>
+<body>
+
+    <article class="group">
+
+        <h1>Cats</h1>
+
+        <img src="cool_cat.jpg" alt="Cool Cat">
+        <img src="cool_cat.jpg" alt="Cool Cat">
+        <img src="cool_cat.jpg" alt="Cool Cat">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolore, incidunt eius soluta ipsum, velit aperiam beatae reiciendis quae fugiat repellat quas. Debitis et cupiditate magni. Ullam distinctio eligendi aut.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolore, incidunt eius soluta ipsum, velit aperiam beatae reiciendis quae fugiat repellat quas. Debitis et cupiditate magni. Ullam distinctio eligendi aut.</p>
+
+    <!-- <div class="stop-float">STOP THE FLOAT</div> -->
+
+    </article>
+
+    <article class="group">
+
+        <h1>Lasers</h1>
+
+        <img src="cool_cat.jpg" alt="Cool Cat">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolore, incidunt eius soluta ipsum, velit aperiam
+            beatae reiciendis quae fugiat repellat quas. Debitis et cupiditate magni. Ullam distinctio eligendi aut.</p>
+
+    </article>
+
+</body>
+</html>
