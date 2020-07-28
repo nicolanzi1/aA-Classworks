@@ -1,0 +1,470 @@
+  [1m[35m (677.9ms)[0m  [1m[35mCREATE DATABASE "CatApi_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (325.0ms)[0m  [1m[35mCREATE DATABASE "CatApi_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (60.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (26.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20200728182743)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (54.7ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200728182743_create_cats.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (4.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200728182743"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-28 18:30:49.425795"], ["updated_at", "2020-07-28 18:30:49.425795"]]
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (28.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Gizmo"], ["created_at", "2020-07-28 18:42:02.681737"], ["updated_at", "2020-07-28 18:42:02.681737"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (1.1ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Breakfast"], ["created_at", "2020-07-28 18:42:37.819381"], ["updated_at", "2020-07-28 18:42:37.819381"]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (0.8ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Markov"], ["created_at", "2020-07-28 18:42:48.711284"], ["updated_at", "2020-07-28 18:42:48.711284"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/cats" for ::1 at 2020-07-28 19:51:44 +0100
+  [1m[35m (40.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as */*
+  [1m[36mCat Load (4.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 172ms (Views: 61.3ms | ActiveRecord: 59.6ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-28 20:01:16 +0100
+Processing by CatsController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/cats" for ::1 at 2020-07-28 20:04:34 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>"Sally"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/cats" for ::1 at 2020-07-28 20:10:53 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>"Sally"}}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-28 20:16:09 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>"Sally"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 842ms (ActiveRecord: 276.2ms)
+
+
+
+NameError - undefined local variable or method `cat' for #<CatsController:0x00007f9fcf508bf8>
+Did you mean?  catch:
+  app/controllers/cats_controller.rb:19:in `create'
+
+Started POST "/cats" for ::1 at 2020-07-28 20:16:57 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>"Sally"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (9.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:19
+  [1m[36mCat Create (75.5ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sally"], ["created_at", "2020-07-28 19:16:57.714164"], ["updated_at", "2020-07-28 19:16:57.714164"]]
+  ↳ app/controllers/cats_controller.rb:19
+  [1m[35m (45.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:19
+Completed 200 OK in 218ms (Views: 13.9ms | ActiveRecord: 144.2ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-28 20:20:09 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>nil}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:19
+  [1m[35m (8.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:19
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 9.2ms)
+
+
+
+RuntimeError - Hell:
+  app/controllers/cats_controller.rb:22:in `create'
+
+Started POST "/cats" for ::1 at 2020-07-28 20:22:37 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>nil}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:19
+Completed 200 OK in 48ms (Views: 0.6ms | ActiveRecord: 18.7ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-28 20:23:55 +0100
+Processing by CatsController#create as */*
+  Parameters: {"cat"=>{"name"=>nil}}
+Can't verify CSRF token authenticity.
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:19
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:19
+Completed 422 Unprocessable Entity in 35ms (Views: 0.8ms | ActiveRecord: 16.8ms)
+
+
+  [1m[35m (42.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (18.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateToys (20200728192849)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (166.2ms)[0m  [1m[35mCREATE TABLE "toys" ("id" bigserial primary key, "cat_id" integer NOT NULL, "name" character varying NOT NULL, "type" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200728192849_create_toys.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200728192849"]]
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (19.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mToy Load (7.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+  [1m[35m (60.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateToys (20200728192849)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (161.8ms)[0m  [1m[35mDROP TABLE "toys"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (27.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200728192849"]]
+  ↳ bin/rails:9
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateToys (20200728192849)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (132.1ms)[0m  [1m[35mCREATE TABLE "toys" ("id" bigserial primary key, "cat_id" integer NOT NULL, "name" character varying NOT NULL, "ttype" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200728192849_create_toys.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (7.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200728192849"]]
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mToy Create (28.9ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["name", "billy"], ["ttype", "yarnball"], ["created_at", "2020-07-28 19:41:52.838845"], ["updated_at", "2020-07-28 19:41:52.838845"]]
+  [1m[35m (14.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+Started GET "/toys" for ::1 at 2020-07-28 20:59:44 +0100
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+
+LoadError - Unable to autoload constant ToysController, expected /Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/toys_controller.rb to define it:
+
+Started GET "/toys" for ::1 at 2020-07-28 20:59:55 +0100
+
+LoadError - Unable to autoload constant ToysController, expected /Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/toys_controller.rb to define it:
+
+Started GET "/toys" for ::1 at 2020-07-28 21:01:17 +0100
+
+LoadError - Unable to autoload constant ToysController, expected /Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/toys_controller.rb to define it:
+
+Started GET "/toys" for ::1 at 2020-07-28 21:07:20 +0100
+
+LoadError - Unable to autoload constant ToysController, expected /Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/toys_controller.rb to define it:
+
+Started GET "/toys" for ::1 at 2020-07-28 21:07:47 +0100
+Processing by ToysController#index as */*
+  Parameters: {"cat"=>{"name"=>nil}, "toy"=>{}}
+  [1m[36mToy Load (81.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 329ms (Views: 20.2ms | ActiveRecord: 443.7ms)
+
+
+Started GET "/toys/1" for ::1 at 2020-07-28 21:09:14 +0100
+Processing by ToysController#show as */*
+  Parameters: {"cat"=>{"name"=>nil}, "id"=>"1", "toy"=>{}}
+  [1m[36mToy Load (44.8ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:7
+Completed 200 OK in 254ms (Views: 5.2ms | ActiveRecord: 54.8ms)
+
+
+Started POST "/toys" for ::1 at 2020-07-28 21:10:53 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+{ cat_id: 1, name: "stringy", ttype: "string" }
+
+ActionDispatch::Http::Parameters::ParseError - 765: unexpected token at '{ cat_id: 1, name: "stringy", ttype: "string" }':
+
+Started POST "/toys" for ::1 at 2020-07-28 21:11:32 +0100
+Processing by ToysController#create as */*
+  Parameters: {"cat_id"=>1, "name"=>"stringy", "ttype"=>"string", "toy"=>{"cat_id"=>1, "name"=>"stringy", "ttype"=>"string"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (68.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[36mCat Load (8.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[36mToy Create (35.0ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["name", "stringy"], ["ttype", "string"], ["created_at", "2020-07-28 20:11:33.635111"], ["updated_at", "2020-07-28 20:11:33.635111"]]
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[35m (9.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:17
+Completed 200 OK in 684ms (Views: 3.7ms | ActiveRecord: 173.2ms)
+
+
+Started POST "/toys" for ::1 at 2020-07-28 21:12:07 +0100
+Processing by ToysController#create as */*
+  Parameters: {"cat_id"=>1, "name"=>"stringy", "toy"=>{"cat_id"=>1, "name"=>"stringy"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (15.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[35m (11.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:17
+Completed 422 Unprocessable Entity in 225ms (Views: 3.1ms | ActiveRecord: 28.6ms)
+
+
+Started GET "/toys/2" for ::1 at 2020-07-28 21:12:43 +0100
+Processing by ToysController#show as */*
+  Parameters: {"cat_id"=>1, "name"=>"stringy", "id"=>"2", "toy"=>{"cat_id"=>1, "name"=>"stringy"}}
+  [1m[36mToy Load (96.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:7
+Completed 200 OK in 164ms (Views: 6.8ms | ActiveRecord: 96.3ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:13:51 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+{ "cat_id": 1, "name": "Senator String" "ttype": "string" }
+
+ActionDispatch::Http::Parameters::ParseError - 765: unexpected token at '{ "cat_id": 1, "name": "Senator String" "ttype": "string" }':
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:14:11 +0100
+Processing by ToysController#update as */*
+  Parameters: {"cat_id"=>1, "name"=>"Senator String", "ttype"=>"string", "id"=>"2", "toy"=>{"cat_id"=>1, "name"=>"Senator String", "ttype"=>"string"}}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (1.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (7.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (44.0ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mToy Update (123.4ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "Senator String"], ["updated_at", "2020-07-28 20:14:11.488127"], ["id", 2]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (13.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 200 OK in 329ms (Views: 2.7ms | ActiveRecord: 189.6ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:15:00 +0100
+Processing by ToysController#update as */*
+  Parameters: {"cat_id"=>1, "ttype"=>"string", "id"=>"2", "toy"=>{"cat_id"=>1, "ttype"=>"string"}}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (285.7ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (2.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 348ms (Views: 3.0ms | ActiveRecord: 290.4ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:15:30 +0100
+Processing by ToysController#update as */*
+  Parameters: {"cat_id"=>1, "name"=>"Mr. String", "id"=>"2", "toy"=>{"cat_id"=>1, "name"=>"Mr. String"}}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (32.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (10.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (3.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (4.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 285ms (Views: 40.4ms | ActiveRecord: 51.2ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:16:26 +0100
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>1, "name"=>"Mr. String"}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (9.7ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (2.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 257ms (Views: 2.1ms | ActiveRecord: 12.6ms)
+
+
+  [1m[36mToy Load (0.9ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" ORDER BY "toys"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mToy Update (0.7ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "Congressman String"], ["updated_at", "2020-07-28 20:19:14.802160"], ["id", 2]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:35:44 +0100
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"name"=>"Read Admiral String"}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (44.8ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:30
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:30
+  [1m[36mToy Update (27.9ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "Read Admiral String"], ["updated_at", "2020-07-28 20:35:45.326236"], ["id", 2]]
+  ↳ app/controllers/toys_controller.rb:30
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:30
+Completed 200 OK in 235ms (Views: 3.4ms | ActiveRecord: 139.9ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2020-07-28 21:36:43 +0100
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"name"=>"Read Admiral String", "ttype"=>"yarnball"}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mToy Load (2.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:28
+Unpermitted parameter: :ttype
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:30
+  [1m[36mCat Load (2.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:30
+  [1m[35m (54.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:30
+Completed 200 OK in 156ms (Views: 13.6ms | ActiveRecord: 60.3ms)
+
+
+Started PATCH "/cats/1" for ::1 at 2020-07-28 21:41:14 +0100
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting ')'
+...at.new(name: params[:cat]permit(:name))
+...                         ^~~~~~
+/Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/cats_controller.rb:17: syntax error, unexpected ')', expecting keyword_end
+...ame: params[:cat]permit(:name))
+...                              ^:
+  app/controllers/cats_controller.rb:17:in `'
+
+Started GET "/cats/1" for ::1 at 2020-07-28 21:41:36 +0100
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting ')'
+...at.new(name: params[:cat]permit(:name))
+...                         ^~~~~~
+/Users/nicolanzi/Desktop/App Academy/Rails/Routes and Controllers/CatApi/app/controllers/cats_controller.rb:17: syntax error, unexpected ')', expecting keyword_end
+...ame: params[:cat]permit(:name))
+...                              ^:
+  app/controllers/cats_controller.rb:17:in `'
+
+Started GET "/cats/1" for ::1 at 2020-07-28 21:42:27 +0100
+Processing by CatsController#show as */*
+  Parameters: {"toy"=>{"name"=>"Read Admiral String", "ttype"=>"yarnball"}, "id"=>"1", "cat"=>{}}
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 200 OK in 20ms (Views: 1.6ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/cats/1/toys" for ::1 at 2020-07-28 21:42:49 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/cats/1/toys"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
