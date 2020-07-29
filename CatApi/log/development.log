@@ -2991,3 +2991,101 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/cats/new" for ::1 at 2020-07-29 15:45:07 +0100
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (2.0ms)
+  Rendered cats/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 422ms (Views: 335.8ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/cats" for ::1 at 2020-07-29 16:06:24 +0100
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (28.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (80.5ms)
+Completed 200 OK in 536ms (Views: 442.2ms | ActiveRecord: 59.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 16:06:38 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (8.4ms)
+  Rendered cats/new.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 120ms (Views: 104.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 16:07:32 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Gizmo", "skill"=>"Jumping", "owner"=>{"name"=>"Ned", "job_title"=>"Software Developer"}}}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: :owner
+  [1m[35m (7.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:28
+  [1m[36mCat Create (69.7ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at", "skill") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gizmo"], ["created_at", "2020-07-29 15:07:33.026085"], ["updated_at", "2020-07-29 15:07:33.026085"], ["skill", "Jumping"]]
+  ↳ app/controllers/cats_controller.rb:28
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:28
+Redirected to http://localhost:3000/cats/12
+Completed 302 Found in 134ms (ActiveRecord: 80.4ms)
+
+
+Started GET "/cats/12" for ::1 at 2020-07-29 16:07:33 +0100
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCat Load (30.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:10
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (3.5ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 12]]
+  ↳ app/views/cats/show.html.erb:6
+  Rendered cats/show.html.erb within layouts/application (101.5ms)
+Completed 200 OK in 211ms (Views: 115.1ms | ActiveRecord: 56.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-07-29 16:09:49 +0100
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 75ms (Views: 67.3ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/cats/12" for ::1 at 2020-07-29 16:09:51 +0100
+Processing by CatsController#destroy as HTML
+  Parameters: {"id"=>"12"}
+Can't verify CSRF token authenticity.
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:74
+  [1m[36mCat Destroy (11.9ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/cats_controller.rb:74
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:74
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 27ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/cats" for ::1 at 2020-07-29 16:09:51 +0100
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 16:09:57 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (1.0ms)
+  Rendered cats/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
