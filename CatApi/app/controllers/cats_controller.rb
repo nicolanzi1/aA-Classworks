@@ -11,19 +11,27 @@ class CatsController < ApplicationController
         render :show
     end
 
+    # 1. GET request for blank /cats/new form
+    # 2. POST to /cats
+    # 3. Validation fails
+    # 4. Server will render the new template again
+    # 5. The form is filled in with @cat data
+
     def create
         # POST /cats
         # Content-Length: ...
         #
         # { "cat": { "name": "Sally" } }
 
-        @cat = Cat.new(params[:cat].permit(:name))
+        @cat = Cat.new(params[:cat].permit(:name, :skill))
 
         if @cat.save
             # cat_url == /cats/...
             redirect_to cat_url(@cat)
         else
-            render json: @cat.errors.full_messages, status: :unprocessable_entity
+            # redirect_to new_cat_url
+            render :new
+            # render json: @cat.errors.full_messages, status: :unprocessable_entity
         end
     end
 
@@ -38,6 +46,7 @@ class CatsController < ApplicationController
     def new
         # /cats/new
         # show a form to create a new object
+        @cat = Cat.new
         render :new
     end
 

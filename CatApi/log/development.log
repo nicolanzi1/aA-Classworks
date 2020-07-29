@@ -1420,3 +1420,247 @@ Processing by CatsController#new as HTML
 Completed 200 OK in 110ms (Views: 100.9ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/cats" for ::1 at 2020-07-29 10:36:09 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>""}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:22
+  [1m[35m (7.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:22
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 171ms (Views: 39.8ms | ActiveRecord: 95.1ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 10:36:12 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>""}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:22
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 16.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 10:36:13 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>""}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:22
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (37.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddSkillToCats (20200729093731)
+  [1m[35m (5.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (69.2ms)[0m  [1m[35mALTER TABLE "cats" ADD "skill" character varying[0m
+  ↳ db/migrate/20200729093731_add_skill_to_cats.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (6.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200729093731"]]
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (18.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2125703341386507645)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Destroy (21.2ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = $1[0m  [["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = $1[0m  [["id", 2]]
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Destroy (7.1ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = $1[0m  [["id", 3]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cats" WHERE "cats"."id" = $1[0m  [["id", 4]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mToy Load (13.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mToy Destroy (8.0ms)[0m  [1m[31mDELETE FROM "toys" WHERE "toys"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mToy Destroy (0.4ms)[0m  [1m[31mDELETE FROM "toys" WHERE "toys"."id" = $1[0m  [["id", 2]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mToy Destroy (0.5ms)[0m  [1m[31mDELETE FROM "toys" WHERE "toys"."id" = $1[0m  [["id", 3]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mToy Destroy (0.4ms)[0m  [1m[31mDELETE FROM "toys" WHERE "toys"."id" = $1[0m  [["id", 4]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/cats" for ::1 at 2020-07-29 10:42:09 +0100
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nicolanzi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 114ms (Views: 74.5ms | ActiveRecord: 21.1ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 10:42:17 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 10:45:06 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 78ms (Views: 70.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 10:45:26 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 64ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 12:55:33 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Earl", "skill"=>""}}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: :skill
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:22
+  [1m[35m (28.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:22
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 1075ms (Views: 500.7ms | ActiveRecord: 138.4ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:05:14 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Earl", "skill"=>""}}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: :skill
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (9.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 275ms (Views: 78.5ms | ActiveRecord: 90.0ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:05:24 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Earl", "skill"=>""}}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: :skill
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (3.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 97ms (Views: 64.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:06:14 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Earl", "skill"=>""}}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: :skill
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 265ms (Views: 178.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats" for ::1 at 2020-07-29 13:06:20 +0100
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (26.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 121ms (Views: 84.2ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/cats/new" for ::1 at 2020-07-29 13:06:21 +0100
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 61ms (Views: 55.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:09:51 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Gizmo", "skill"=>""}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 117ms (Views: 29.8ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:10:15 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"", "skill"=>"Jumping"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/cats_controller.rb:29
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 141ms (Views: 51.8ms | ActiveRecord: 16.9ms)
+
+
+Started POST "/cats" for ::1 at 2020-07-29 13:10:30 +0100
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Gizmo", "skill"=>"Jumping"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[36mCat Create (75.1ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at", "skill") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gizmo"], ["created_at", "2020-07-29 12:10:30.649693"], ["updated_at", "2020-07-29 12:10:30.649693"], ["skill", "Jumping"]]
+  ↳ app/controllers/cats_controller.rb:29
+  [1m[35m (27.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:29
+Redirected to http://localhost:3000/cats/9
+Completed 302 Found in 146ms (ActiveRecord: 102.7ms)
+
+
+Started GET "/cats/9" for ::1 at 2020-07-29 13:10:30 +0100
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCat Load (28.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:10
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (28.7ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 9]]
+  ↳ app/views/cats/show.html.erb:6
+  Rendered cats/show.html.erb within layouts/application (158.7ms)
+Completed 200 OK in 276ms (Views: 158.5ms | ActiveRecord: 82.2ms)
+
+
