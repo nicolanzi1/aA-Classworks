@@ -15,13 +15,21 @@ class ToysController < ApplicationController
 
         # Strong Parameters
         # self.params => Parameters < HashWithIndifferentAccess < Hash
-        toy = Toy.new(self.toy_params)
+        @toy = Toy.new(self.toy_params)
+        @cat = @toy.cat
 
-        if toy.save
-            render json: toy
+        if @toy.save
+            redirect_to cat_url(@cat)
         else
-            render json: toy.errors.full_messages, status: :unprocessable_entity
+            render :new
+            # render json: toy.errors.full_messages, status: :unprocessable_entity
         end
+    end
+
+    def new
+        @cat = Cat.find(params[:cat_id])
+        @toy = Toy.new
+        render :new
     end
 
     def destroy
