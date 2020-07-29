@@ -23,7 +23,7 @@ class CatsController < ApplicationController
         #
         # { "cat": { "name": "Sally" } }
 
-        @cat = Cat.new(params[:cat].permit(:name, :skill))
+        @cat = Cat.new(cat_params)
 
         if @cat.save
             # cat_url == /cats/...
@@ -51,17 +51,21 @@ class CatsController < ApplicationController
     end
 
     def update
-        cat = Cat.find(params[:id])
+        @cat = Cat.find(params[:id])
         # If I upload an admin attribute, this tries to set cat.admin
-        cat.update(params[:cat].permit(:name))
+        if @cat.update(cat_params)
+            redirect_to cat_url(@cat)
+        else
+            render :edit
+        end
         # ...
     end
 
     def edit
         # /cats/:id/edit
         # show a form to edit an existing object
-
-
+        @cat = Cat.find(params[:id])
+        render :edit
     end
 
     def destroy
@@ -76,5 +80,10 @@ class CatsController < ApplicationController
         #    to do a destroy
         # 4. Destroys the cat. Issues to redirect to the client
         # 5. Client GETs /cats again
+    end
+
+    protected
+    def cat_params
+        params[:cat].permit(:name, :skill)
     end
 end
