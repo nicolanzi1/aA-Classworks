@@ -82,8 +82,8 @@ class CatsController < ApplicationController
         # 5. Client GETs /cats again
     end
 
-    protected
+    private
     def cat_params
-        params[:cat].permit(:name, :skill)
+        params[:cat].permit(:name, :skill, :coat_color, :description)
     end
 end
