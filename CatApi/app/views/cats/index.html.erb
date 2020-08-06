@@ -3,15 +3,11 @@
 <ul>
     <% @cats.each do  |cat| %>
         <li>
-            <a href="<%= cat_url(cat) %>"><%= cat.name %></a>
+            <%= cat_link(cat) %>
 
-            <form action="<%= cat_url(cat) %>" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-
-                <input type="submit" value="Destroy Cat!">
-            </form>
+            <%= button_to "Destroy Cat!", cat_url(cat), method: :delete %>
         </li>
     <% end %>
 </ul>
 
-<a href="<%= new_cat_url %>">New Cat!</a>
+<%= link_to "New Cat!", new_cat_url %>
